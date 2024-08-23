@@ -1,0 +1,875 @@
+Holiday Homework
+
+Q1 prime or not 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isprime(int n){
+  if (n <= 1) {
+        return false; 
+    }
+    if (n <= 3) {
+        return true; 
+    }
+    if (n % 2 == 0 || n % 3 == 0) {
+        return false; 
+    }
+
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main(){
+  int num;
+  cout<<"Enter the number : ";
+  cin >> num;
+
+  if (isprime(num)) {
+        cout << num << " is prime" << endl;
+    } 
+    else {
+        cout << num << " is not prime" << endl;  
+    }
+  return 0;
+}
+
+
+Q2 Create a C++ function that takes a temperature in Celsius as an argument and returns the corresponding category (Cold, Warm, Hot) using if-else statements.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+string temperature(double celsius) {
+    if (celsius < 10) {
+        return "Cold";
+    } else if (celsius < 25) {
+        return "Warm";
+    } else {
+        return "Hot";
+    }
+}
+
+int main(){
+  double celsius;
+    cout << "Enter the temperature in Celsius: ";
+    cin >> celsius;
+
+    string category = temperature(celsius);
+    cout << category ;
+
+    return 0;
+}
+
+
+Q3 Write a C++ function that takes a month as an argument and returns whether it has 30 days, 31 days, or 28/29 days using if-else statements
+
+#include<bits/stdc++.h>
+using namespace std;
+
+string monthlength(int month) {
+    if (month == 2) {
+        return "28/29 days"; 
+    } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+        return "30 days";
+    } else {
+        return "31 days";
+    }
+}
+
+int main(){
+  int month;
+  cout <<"Enter the month number : ";
+  cin >> month; 
+
+  string days = monthlength( month);
+  cout <<"Month " << month << " has " << days;
+    return 0;
+}
+
+Q4 Develop a C++ function that takes three sides of a triangle as arguments and returns whether the triangle is equilateral, isosceles, or scalene using if-else statements.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+string triangle(int side1, int side2, int side3){
+  if (side1 == side2 && side2 == side3)
+  {
+    return "Equilateral";
+  }
+  else if (side1 == side2 || side1 == side3 || side2 == side3)
+  {
+    return "Isosceles";
+  }
+  else
+  {
+    return "Scalene";
+  }
+}
+
+int main(){
+  int side1, side2, side3;
+  cout << "Enter the sides : ";
+  cin >> side1 >> side2 >> side3;
+
+  string type_of_triangle = triangle(side1, side2, side3);
+  cout << "The triangle with sides " << side1 << ", " << side2 << ", and " << side3 << " is " << type_of_triangle ;
+    return 0;
+}
+
+Q5 Create a C++ program that takes a floating-point number as input and prints whether it is positive, negative, or zero using if-else statements (without return, with argument).
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void checkNumber(float num) {
+    if (num > 0) {
+        cout << num << " is positive" ;
+    } else if (num < 0) {
+        cout << num << " is negative" ;
+    } else {
+        cout << num << " is zero" ;
+    }
+}
+
+int main() {
+    float number;
+    cout << "Enter a floating-point number: ";
+    cin >> number;
+
+    checkNumber(number);
+    return 0;
+}
+
+
+Q6 Write a C++ function that takes two numbers as arguments and returns whether they are equal, or which one is larger using if-else statements and relational operators.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void Numbers(int num1, int num2) {
+    if (num1 == num2) {
+        cout << num1 << " and " << num2 << " are equal" << endl;
+    } else if (num1 > num2) {
+        cout << num1 << " is larger than " << num2 << endl;
+    } else {
+        cout << num2 << " is larger than " << num1 << endl;
+    }
+}
+
+int main() {
+    int num1, num2;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+
+    Numbers(num1, num2);
+    return 0;
+}
+
+
+Q7 Create a C++ function that takes a character as an argument and returns whether it is an uppercase letter or not using if-else statements
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isUppercase(char ch) {
+    if (ch >= 'A' && ch <= 'Z') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+int main() {
+    char character;
+    cout << "Enter a character: ";
+    cin >> character;
+
+    if (isUppercase(character)) {
+        cout << character << " is an uppercase letter" << endl;
+    } else {
+        cout << character << " is an lowercase letter" << endl;
+    }
+
+    return 0;
+}
+
+
+Q8 C++ function that takes a person's weight and height as arguments and returns their Body Mass Index (BMI) category (Underweight, Normal weight, Overweight, Obese) using if-else statements.
+
+#include<bits/stdc++.h>
+using namesoace std;
+string BMI(double weight, double height) {
+    double bmi = weight / (height * height);
+
+    if (bmi < 18.5) {
+        return "Underweight";
+    } else if (bmi = 18.5 && bmi < 25) {
+        return "Normal weight";
+    } else if (bmi >= 25 && bmi < 30) {
+        return "Overweight";
+    } else {
+        return "Obese"; 
+    }
+}
+
+int main() {
+    double weight, height;
+    cout << "Enter your weight in kilograms: ";
+    cin >> weight;
+    cout << "Enter your height in meters: ";
+    cin >> height;
+
+    string bmiCategory = BMI(weight, height);
+    cout << "Your BMI category is: " << bmiCategory;
+
+    return 0;
+}
+
+
+Q9 Develop a C++ function that takes a string as an argument and returns whether it contains only digits using if-else statements
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool containsdigit(const string& str) {
+    for (char ch : str) {
+        if (!isdigit(ch)) {
+            return false; 
+        }
+    }
+    return true;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+
+    if (containsdigit(input)) {
+        cout << "The string " << input << " contains only digits." ;
+    } else {
+        cout << "The string " << input << " contains non-digit characters.";
+    }
+
+    return 0;
+}
+
+
+Q10 Write a C++ function that takes a person's hourly wage and hours worked as arguments and returns their total pay, including overtime pay for hours worked over 40, using if-else statements.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+double calculatePay(double hourlyWage, int hoursWorked) {
+    double regularPay = 0.0;
+    double overtimePay = 0.0;
+
+    if (hoursWorked <= 40) {
+        regularPay = hoursWorked * hourlyWage;
+    } else {
+        regularPay = 40 * hourlyWage;
+        overtimePay = (hoursWorked - 40) * hourlyWage * 1.5; 
+    }
+    return regularPay + overtimePay;
+}
+
+int main() {
+    double hourlyWage;
+    int hoursWorked;
+
+    cout << "Enter your hourly wage: ";
+    cin >> hourlyWage;
+    cout << "Enter the number of hours worked: ";
+    cin >> hoursWorked;
+
+    double totalPay = calculatePay(hourlyWage, hoursWorked);
+    cout << "Your total pay is: " << totalPay ;
+
+    return 0;
+}
+
+Q11 Develop a C++ function that takes a character as an argument and returns its ASCII value category (digit, uppercase letter, lowercase letter, special character) using if-else statements.
+
+#include<bits/stdc++.h>
+using namespace std;
+string CharacterCategory(char ch) {
+    if (isdigit(ch)) {
+        return "digit";
+    } else if (isupper(ch)) {
+        return "uppercase letter";
+    } else if (islower(ch)) {
+        return "lowercase letter";
+    } else {
+        return "special character";
+    }
+}
+
+int main() {
+    char character;
+    cout << "Enter a character: ";
+    cin >> character;
+
+    string category = CharacterCategory(character);
+    cout << character << " is a " << category << endl;
+
+    return 0;
+}
+
+
+Q12 Implement a C++ function that takes the number of hours a car is parked as an argument and returns the parking fee based on hourly rates using if-else statements
+
+#include<bits/stdc++.h>
+using namespace std;
+
+double calculateParkingFee(int hoursParked) {
+    double parkingFee = 0.0;
+
+    if (hoursParked <= 2) {
+        parkingFee = 50; 
+    } else {
+        parkingFee = 50 + (hoursParked - 2) * 10.0; 
+    }
+
+    return parkingFee;
+}
+
+int main() {
+    int hoursParked;
+    cout << "Enter the number of hours parked: ";
+    cin >> hoursParked;
+
+    double totalFee = calculateParkingFee(hoursParked);
+    cout << "The total parking fee is: " << totalFee ;
+
+    return 0;
+}
+
+
+Q13 Implement a C++ function that takes a person's income as an argument and returns their tax bracket using if-else statements.
+
+#include<bits/stdc++.h>
+using namespace std;
+string TaxBracket(double income) {
+    if (income <= 250000) {
+        return "Nil";
+    } else if (income <= 500000) {
+        return "5%";
+    } else if (income <= 1000000) {
+        return "20%";
+    } else {
+        return "30%";
+    }
+}
+
+int main() {
+    double income;
+    cout << "Enter your annual income: ";
+    cin >> income;
+
+    string taxBracket = TaxBracket(income);
+    cout << "Your tax bracket is: " << taxBracket ;
+
+    return 0;
+}
+
+
+Q14 Write a C++ function that takes a number as an argument and returns whether it is a Fibonacci number or not using if-else statements.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isFibonacci(int num) {
+    int t1 = 0, t2 = 1, Nextterm;
+
+    while (Nextterm < num) {
+        Nextterm = t1 + t2;
+        t1 = t2;
+        t2 = Nextterm;
+    }
+    return Nextterm == num;
+}
+
+int main() {
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+
+    if (isFibonacci(number)) {
+        cout << number << " is a Fibonacci number" << endl;
+    } else {
+        cout << number << " is not a Fibonacci number" << endl;
+    }
+
+    return 0;
+}
+
+
+Q15 Write a C++ function that takes the number of days a book is overdue and returns the fine using if-else statements.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+double calculateFine(int daysOverdue) {
+    double fine = 0.0;
+
+    if (daysOverdue <= 5) {
+        fine = 6 * daysOverdue;             // 6 ruppees per day for the first 5 days
+    } else if (daysOverdue <= 10) {
+        fine = 30 + (daysOverdue - 5) + 20;  // 30 ruppees for the first 5 days + 20 per day for the next 5 days
+    } else {
+        fine = 60 + (daysOverdue - 10) + 40; // 60 for the first 10 days + 40 per day for subsequent days
+    }
+
+    return fine;
+}
+
+int main() {
+    int daysOverdue;
+    cout << "Enter the number of days the book is overdue: ";
+    cin >> daysOverdue;
+
+    double totalFine = calculateFine(daysOverdue);
+    cout << "The total fine is: " << totalFine << endl;
+
+    return 0;
+} 
+
+
+Q16 Create a C++ function that takes a student's score as an argument and returns whether the score is in the top 10% using logical operators.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isTop10(int score) {
+    return score >= 90 && score <= 100; 
+}
+
+int main() {
+    int studentScore;
+    cout << "Enter the student's score: ";
+    cin >> studentScore;
+
+    if (isTop10(studentScore)) 
+    {
+        cout << "The student is in the top 10%" ;
+    } else {
+        cout << "The student is not in the top 10%" ;
+    }
+    return 0;
+}
+
+
+Q17 Implement a C++ function that takes a student's attendance percentage as an argument and returns whether they are eligible for exams using if-else statements.
+
+#inclde<bits/stdc++.h
+using namespace std;
+
+bool isEligible(double percentage){
+    return percentage >= 75;
+}
+
+int main(){
+    double percentage;
+    cout <<"Enter the percentage : ";
+    cin >> percentage;
+
+    if (isEligible(percentage))
+    {
+        cout << "Eligible" ;
+    }
+    else
+    {
+        cout << "Not Eligible";
+    }
+    
+    return 0;
+}
+
+
+Q18 18. Develop a C++ function that takes the quantity of items purchased as an argument and returns the total cost after applying a discount based on the quantity using if-else statements.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+float checkCost(int quan, float price) 
+{
+    float Cost = quan * price;
+
+    if (quan >= 10) 
+    {
+        Cost *= 0.90;  // 10% discount
+    } 
+    else if (quan >= 5) 
+    {
+        Cost *= 0.95;  //  5% discount
+    }
+    return Cost;  
+}
+
+int main() 
+{
+    int quan;
+    float price;
+
+    cout<<"Enter the quantity of items: ";
+    cin>>quan;
+    
+    cout<<"Enter the price per item: ";
+    cin>>price;
+    
+    float Cost =checkCost(quan, price);
+    cout <<" cost after discount:"<<Cost<<endl;
+
+    return 0;
+}
+
+
+Q19. Write a C++ function that takes a temperature in Fahrenheit as an argument and returns its equivalent in Celsius, with additional messages if it is freezing or boiling using if-else statements.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+float checkWather (float fah) {
+    float cel = (fah - 32) * 5 / 9;
+    // if (cel <= 0) {
+    //     cout << "It is freezing!" << endl;
+    // } else if (cel >= 100) {
+    //     cout << "It is boiling!" << endl;
+    // }
+    return cel;
+}
+
+int main()
+{
+    float fah;
+     cout<<"Enter the temp in fahrenheit: ";
+    cin>>fah;
+    
+   float ans=checkWather(fah);
+   
+   cout<<"temperature in Celsius is: "<<ans;
+   
+    
+    return 0;
+}
+
+
+Q20. Implement a C++ function that takes a student's attendance percentage as an argument and returns whether they are eligible for exams using if-else statements.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string isEligible (float per) 
+   {
+    if (per >= 75.0) {
+        return "Eligible";
+    } else {
+        return "Not Eligible";
+    }
+}
+
+int main()
+{
+    float per;
+    cout<<"Enter the no: ";
+    cin>>per;
+   
+   cout<< isEligible(per);
+   
+    return 0;
+}
+
+
+Q21. Implement a C++ function that takes a day of the month as an argument and returns the corresponding zodiac sign using if-else statements.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string zodiacSign(int day, int month) {
+    
+    if (day < 1 || day > 31 || month < 1 || month > 12) {
+        return "Invalid date";
+    }
+
+    
+    if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "Aquarius";
+    else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "Pisces";
+    else if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "Aries";
+    else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "Taurus";
+    else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "Gemini";
+    else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "Cancer";
+    else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "Leo";
+    else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "Virgo";
+    else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "Libra";
+    else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "Scorpio";
+    else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "Sagittarius";
+    else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) return "Capricorn";
+    
+    return "Invalid date"; 
+}
+
+int main() {
+    int day, month;
+    cout << "Enter the day of the month: ";
+    cin >> day;
+    cout << "Enter the month (1-12): ";
+    cin >> month;
+    
+    string ans = zodiacSign(day, month);
+    cout<<"Your zodiac sign is: "<<ans<<endl;
+    
+    return 0;
+}
+
+
+Q22. Write a C++ function that takes an employee's years of service as an argument and returns their bonus percentage using if-else statements.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+float getBonus(int year) {
+    if (year>=10) {
+        return 20.0; // 20% bonus
+    } else if (year>=5) {
+        return 10.0; // 10% bonus
+    } else {
+        return 5.0;  // 5% bonus
+    }
+}
+
+
+int main()
+{
+   int year;
+  cout<<"Enter the no: ";
+  cin>>year;
+  
+    float ans= getBonus(year);
+     cout<<ans<<"% bonus";
+    return 0;
+}
+
+Q23. Develop a C++ function that takes a temperature in Celsius as an argument and returns the state of water (solid, liquid, gas) at that temperature using if-else statements.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string checkForm (float cel) 
+  {
+    if (cel<=0) {
+        return "solid";
+    } else if (cel>=100) {
+        return "gas";
+    } else {
+        return "liquid";
+    }
+}
+
+int main()
+{
+    float cel;
+    cout<<"Enter the temperature in celsius: ";
+    cin>>cel;
+   
+   cout<< checkForm(cel);
+   
+    return 0;
+}
+
+
+Q24. Create a C++ function that takes a student's score and total possible score as arguments and returns their percentage and grade using if-else statements.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+char grade(float percentage) 
+{
+    if (percentage >= 90) return 'A';
+    else if (percentage >= 80) return 'B';
+    else if (percentage >= 60) return 'C';
+    else if (percentage >= 40) return 'D';
+    else return 'F';
+}
+int main() 
+{
+   int score,total;
+    cout<<"Enter the score and total score: ";
+    cin>>score>>total;
+    
+    float percentage= (score/total)*100;
+    cout<<"Percentage: "<<percentage<<"%"<<endl;
+    cout<<"Grade: "<<grade(percentage)<<endl;
+    return 0;
+}
+
+
+Q25. Write a C++ function that takes a person's age as an argument and returns their life stage (infant, toddler, child, adolescent, adult, senior) using if-else statements.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string lifeStage(int age) 
+{
+    if (age<= 1) return "Infant";
+     else if (age >= 2 && age <= 4) return "Toddler";
+    else if (age >= 5 && age <= 11) return "Child";
+    else if (age >= 12 && age <= 19) return "Adolescent";
+    else if (age >= 20 && age <= 40) return "Adult";
+    else return "Senior";
+}
+
+int main()
+{
+    int age;
+    cout<<"Enter the age: ";
+    cin>>age;
+   
+   cout<< lifeStage(age);
+   
+    return 0;
+}
+
+
+Q26. Write a C++ function that takes a character as input and uses nested if-else statements to determine if it is a vowel or consonant, considering both uppercase and lowercase letters.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string isVowel(char ch) 
+{
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+        return "Vowel";
+    } else {
+        return "Consonant";
+    }
+}
+
+int main()
+{
+    char ch;
+    cout<<"Enter the character: ";
+    cin>>ch;
+   ch = tolower(ch); 
+   
+   cout<< isVowel(ch);
+   
+    return 0;
+}
+
+
+Q27. Write a C++ function that takes an integer as input and uses nested if-else statements to determine if the number is positive and even, positive and odd, negative and even, or negative and odd.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string checkNo(int n) {
+    if (n>0) {
+        if (n%2==0) return "Positive and Even";
+        else return "Positive and Odd";
+    } else if (n<0) {
+        if (n%2 == 0) return "Negative and Even";
+        else return "Negative and Odd";
+    } else {
+        return "Zero";
+    }
+}
+
+int main()
+{
+    int n;
+    cout<<"Enter the Number: ";
+    cin>>n;
+   
+   cout<< checkNo(n);
+   
+    return 0;
+}
+
+
+Q28. Write a C++ function that takes a float as input and uses nested if-else statements to determine if the number is positive, negative, or zero, and whether it is a whole number or a fraction.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string checkNo(float n) {
+    if (n>0) {
+        if (n == (int)n) return "Positive Whole Number";
+        else return "Positive Fraction";
+    } else if (n < 0) {
+        if (n == (int)n) return "Negative Whole Number";
+        else return "Negative Fraction";
+    } else {
+        return "Zero";
+    }
+}
+
+
+int main()
+{
+    float n;
+    cout<<"Enter the Number: ";
+    cin>>n;
+   
+   cout<< checkNo(n);
+   
+    return 0;
+}
+
+
+Q29. Write a C++ function that takes an integer as input and uses nested if-else statements to determine if the number is within a specific range (e.g., 1-100) and if it is divisible by 7.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string isDivisible (int n) 
+{
+    if (n>=1 && n<=100) {
+        if (n%7==0) return " Divisible by 7";
+        else return " in Range but Not Divisible by 7";
+    } else {
+        return "Out of Range";
+    }
+}
+
+int main()
+{
+    int n;
+    cout<<"Enter the Number: ";
+    cin>>n;
+   
+   cout<< isDivisible(n);
+   
+    return 0;
+}
+
+
+Q30. Write a C++ function that takes two integers as input and uses nested if-else statements to determine if both numbers are positive, both are negative, or one is positive and the other is negative.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string checkNo(int n1, int n2) 
+{
+    if (n1>0 && n2>0) return "both positive";
+    else if (n1<0 && n2<0) return "both negative";
+    else if (n1>0 && n2<0) return "first positive, second negative";
+    else return "first negative, second positive";
+}
+
+
+int main()
+{
+    int n1,n2;
+    cout<<"Enter the Number: ";
+    cin>>n1>>n2;
+   
+   cout<< checkNo(n1,n2);
+   
+    return 0;
+}
