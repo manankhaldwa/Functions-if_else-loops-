@@ -1,5 +1,3 @@
-Holiday Homework
-
 Q1 prime or not 
 
 #include<bits/stdc++.h>
@@ -596,8 +594,6 @@ string zodiacSign(int day, int month) {
     if (day < 1 || day > 31 || month < 1 || month > 12) {
         return "Invalid date";
     }
-
-    
     if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "Aquarius";
     else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "Pisces";
     else if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "Aries";
@@ -861,7 +857,6 @@ string checkNo(int n1, int n2)
     else if (n1>0 && n2<0) return "first positive, second negative";
     else return "first negative, second positive";
 }
-
 
 int main()
 {
